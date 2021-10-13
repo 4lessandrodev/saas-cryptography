@@ -1,9 +1,9 @@
+import 'module-alias/register';
 import fastify from "fastify";
 import { decrypt, encrypt, generateKey } from '@app/route';
 import { Encrypter } from '@app/encrypter';
 import MemDB from '@app/db/memory.db'
 import { KeyHelper } from '@app/helpers/key.util';
-import 'module-alias/register';
 
 const db = new MemDB();
 const keyHelper = new KeyHelper();

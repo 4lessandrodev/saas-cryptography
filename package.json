@@ -11,13 +11,15 @@
   "private": true,
   "scripts": {
     "build": "tsc",
-    "start": "env-cmd --silent node dist/src/index",
-    "dev": "ts-node index.ts"
+    "start": "env-cmd --silent node dist/index",
+    "predev":"rimraf ./dist && yarn build",
+    "dev": "yarn start"
   },
   "devDependencies": {
     "@types/jest": "^27.0.2",
     "@types/node": "^16.10.3",
     "jest": "^27.2.5",
+    "rimraf": "^3.0.2",
     "ts-node": "^10.3.0",
     "typescript": "^4.4.3"
   },
@@ -27,6 +29,7 @@
     "module-alias": "^2.2.2"
   },
   "_moduleAliases": {
-    "@app": "./dist/src"
+    "@app": "dist/src",
+    "@": "dist"
   }
 }
