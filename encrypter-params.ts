@@ -1,5 +1,5 @@
 export interface EncrypterParams<T> {
-    data: T
+	data: T
 }
 
 export default EncrypterParams;

@@ -7,4 +7,6 @@ export const DECRYPT_ENCODING_INPUT: Encoding = 'hex';
 export const DECRYPT_ENCODING_OUTPUT: Encoding = 'utf-8';
 export const PASS_LENGTH = 32;
 export const SALT_LENGTH = 38;
+
+// It must be 32 bytes
 export const KEY_LENGTH = 32;
