@@ -11,8 +11,8 @@
   "private": true,
   "scripts": {
     "build": "tsc",
-    "start": "node dist/index",
-    "dev":"ts-node index.ts"
+    "start": "env-cmd node dist/index",
+    "dev": "ts-node index.ts"
   },
   "devDependencies": {
     "@types/jest": "^27.0.2",
@@ -22,6 +22,7 @@
     "typescript": "^4.4.3"
   },
   "dependencies": {
+    "env-cmd": "^10.1.0",
     "fastify": "^3.22.0"
   }
 }
