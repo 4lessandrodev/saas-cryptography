@@ -1,5 +1,5 @@
-export interface Params {
-	data: any;
+export interface Params<T> {
+	data: T;
 	password: string;
 	salt: string;
 }

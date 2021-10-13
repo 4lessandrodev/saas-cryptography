@@ -1,15 +1,15 @@
 # Cryptography as service
 
-This app ensure encrypt and decrypt body.
-All encryption is managed by internal keys and can only be used once.
+This app guarantees to encrypt and decrypt the request body.
+All encryption is managed by internal keys and can only be used once per session.
 
 ---
 
 ## Generate a session
 
-This tag is an auth.
-It is not a encryption key. It just authorize you to use the app.
-It expires after 5 minutes or after to be used to decrypt some data.
+This session is an authentication.
+It is not an encryption key. It only authorizes you to use the app.
+It expires after 5 minutes or after being used to decrypt a data request.
 
 `GET http://localhost:3000/key`
 
@@ -27,8 +27,8 @@ Result
 
 ## Encrypt data
 
-This endpoint encrypt any data you provide on body.
-It must be an object as example below.
+This endpoint encrypts all data provided in the request body.
+It must be an object as shown below.
 
 `POST http://localhost:3000/encrypt`
 
@@ -67,8 +67,8 @@ Result
 
 ## Decrypt data
 
-This endpoint decrypt any data you provide on body data as string.
-It can be used once because the tag you generate on step 1 expires after first use.
+This endpoint decrypts all data provided in the request body data as a string.
+It can only be used once because the tag you generated in step 1 expires after the first use.
 
 Headers
 
@@ -106,7 +106,7 @@ Result
 
 ## Todo
 
-Only authorized apps can generate a session.
+Only authorized applications can generate a session.
 
-- Implement authentication to api.
-- Implement JWT to expires access to the service.
+- Implement authentication for api.
+- Implement JWT to expire access to the service.

@@ -8,7 +8,7 @@ export interface IEncrypt {
 	data: string;
 }
 
-export const EncryptService = async (params: Params): Promise<IEncrypt> => {
+export const EncryptService = async <T>(params: Params<T>): Promise<IEncrypt> => {
 	
 	validateParams(params);
 	

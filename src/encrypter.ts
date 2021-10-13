@@ -21,7 +21,7 @@ export class Encrypter {
 	async encrypt<T>(params: EncrypterParams<T>): Promise<IEncrypt> {
 		const salt = this._keyHelper.extractSaltFromKey(this._key);
 		const password = this._keyHelper.extractPassFromKey(this._key);
-		return this._encrypt({ ...params, password, salt});
+		return this._encrypt<T>({ ...params, password, salt});
 	}
 
 	async decrypt<T>(params: EncrypterParams<T>): Promise<T> {
