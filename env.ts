@@ -5,5 +5,6 @@ export const ENCRYPT_ENCODING_INPUT: Encoding = 'utf-8';
 export const ENCRYPT_ENCODING_OUTPUT: Encoding = 'hex';
 export const DECRYPT_ENCODING_INPUT: Encoding = 'hex';
 export const DECRYPT_ENCODING_OUTPUT: Encoding = 'utf-8';
-export const SALT = 'JHS9DF9668956SER89234';
+export const PASS_LENGTH = 32;
+export const SALT_LENGTH = 38;
 export const KEY_LENGTH = 32;

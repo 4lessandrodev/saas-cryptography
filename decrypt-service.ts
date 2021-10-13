@@ -1,27 +1,27 @@
 import crypto, { scryptSync } from 'crypto';
-import { IEncrypt } from './encrypt-service';
-import { ALGORITHM, DECRYPT_ENCODING_INPUT, DECRYPT_ENCODING_OUTPUT, KEY_LENGTH, SALT } from './env';
+import { ALGORITHM, DECRYPT_ENCODING_INPUT, DECRYPT_ENCODING_OUTPUT, KEY_LENGTH } from './env';
+import Params from './params';
+import { validateParams } from './validate-params';
+import transformData from './transform-data.util';
 
-interface IDEcrypt {
-    data: string;
-}
-
-export const DecryptService = async ({ data }: IEncrypt, password?: string): Promise<IDEcrypt> => {
+export const DecryptService = async <T>(params: Params ): Promise<T> => {
     
-    if(!password || password?.length !== KEY_LENGTH){
-        throw new Error('Api key not provided on headers or Invalid value');
-    }
+    const { data, password, salt } = params;
+
+    validateParams(params);
 
     const iv = Buffer.alloc(16, 0);
-    const key = scryptSync(password, SALT, KEY_LENGTH);
+    const key = scryptSync(password, salt, KEY_LENGTH);
     
     const cipher = crypto.createCipheriv(ALGORITHM, key, iv);
     
     let decrypted = cipher.update(data, DECRYPT_ENCODING_INPUT, DECRYPT_ENCODING_OUTPUT);
 
     decrypted += cipher.final(DECRYPT_ENCODING_OUTPUT);
+
+    const result = transformData<T>(decrypted);
     
-    return { data: decrypted };
+    return result;
 }
 
 export default DecryptService;

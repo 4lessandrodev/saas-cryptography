@@ -1,6 +1,6 @@
 import { FastifyReply, FastifyRequest, RouteOptions } from "fastify";
-import DecryptService from "./decrypt-service";
-import EncryptService from './encrypt-service';
+import encrypter from "./index";
+
 
 export const encrypt: RouteOptions = {
     method: 'POST',
@@ -17,7 +17,8 @@ export const encrypt: RouteOptions = {
     },
 	handler: async (req: FastifyRequest<any>, res: FastifyReply) => {
         const xApiKey = req.headers['x-api-key'];
-		const result = await EncryptService(req.body.data, xApiKey);
+        encrypter.setKey(xApiKey);
+		const result = await encrypter.encrypt({ data: req.body.data });
 		res.send(result);
 	}
 }
@@ -37,7 +38,8 @@ export const decrypt: RouteOptions = {
     },
 	handler: async (req: FastifyRequest<any>, res: FastifyReply) => {
         const xApiKey = req.headers['x-api-key'];
-		const result = await DecryptService(req.body, xApiKey);
+        encrypter.setKey(xApiKey);
+		const result = await encrypter.decrypt({ data: req.body.data });
 		res.send(result);
 	}
 }
