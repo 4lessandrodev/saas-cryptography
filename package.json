@@ -11,7 +11,7 @@
   "private": true,
   "scripts": {
     "build": "tsc",
-    "start": "env-cmd node dist/index",
+    "start": "env-cmd --silent node dist/index",
     "dev": "ts-node index.ts"
   },
   "devDependencies": {
