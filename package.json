@@ -5,8 +5,13 @@
   "main": "index.ts",
   "author": "Alessandro",
   "license": "MIT",
+  "engines": {
+    "node": ">=14"
+  },
   "private": true,
   "scripts": {
+    "build": "tsc",
+    "start": "node dist/index",
     "dev":"ts-node index.ts"
   },
   "devDependencies": {
