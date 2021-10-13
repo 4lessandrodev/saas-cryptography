@@ -1,8 +1,8 @@
-import DecryptService from "./decrypt-service";
-import EncryptService, { IEncrypt } from "./encrypt-service";
-import EncrypterParams from './encrypter-params';
-import { PASS_LENGTH, SALT_LENGTH } from "./env";
-import { KeyHelper } from './key.helper';
+import DecryptService from "@app/services/decrypt-service";
+import EncryptService, { IEncrypt } from "@app/services/encrypt-service";
+import EncrypterParams from '@app/services/encrypter-params';
+import { PASS_LENGTH, SALT_LENGTH } from "@app/config/env";
+import { KeyHelper } from '@app/helpers/key.util';
 
 export class Encrypter {
 	private static encrypter: Encrypter;

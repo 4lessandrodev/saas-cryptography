@@ -1,8 +1,8 @@
 import crypto, { scryptSync } from 'crypto';
-import { ALGORITHM, DECRYPT_ENCODING_INPUT, DECRYPT_ENCODING_OUTPUT, KEY_LENGTH } from './env';
+import { ALGORITHM, DECRYPT_ENCODING_INPUT, DECRYPT_ENCODING_OUTPUT, KEY_LENGTH } from '@app/config/env';
 import Params from './params';
-import { validateParams } from './validate-params';
-import transformData from './transform-data.util';
+import { validateParams } from '@app/helpers/validate-params';
+import transformData from '@app/helpers/transform-data.util';
 
 export const DecryptService = async <T>(params: Params ): Promise<T> => {
 	

@@ -1,6 +1,6 @@
 import { randomUUID } from "crypto";
 import { FastifyReply, FastifyRequest, RouteOptions } from "fastify";
-import {encrypter, db, keyHelper} from "./index";
+import {encrypter, db, keyHelper} from "../index";
 
 export const generateKey: RouteOptions = {
 	method: 'GET',

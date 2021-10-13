@@ -1,5 +1,5 @@
-import Params from './params';
-import { PASS_LENGTH, SALT_LENGTH } from './env';
+import Params from '@app/services/params';
+import { PASS_LENGTH, SALT_LENGTH } from '@app/config/env';
 
 export const validateParams = ({ password, salt }: Params): void => {
 

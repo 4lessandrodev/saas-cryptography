@@ -11,7 +11,7 @@
   "private": true,
   "scripts": {
     "build": "tsc",
-    "start": "env-cmd --silent node dist/index",
+    "start": "env-cmd --silent node dist/src/index",
     "dev": "ts-node index.ts"
   },
   "devDependencies": {
@@ -23,6 +23,10 @@
   },
   "dependencies": {
     "env-cmd": "^10.1.0",
-    "fastify": "^3.22.0"
+    "fastify": "^3.22.0",
+    "module-alias": "^2.2.2"
+  },
+  "_moduleAliases": {
+    "@app": "./dist/src"
   }
 }

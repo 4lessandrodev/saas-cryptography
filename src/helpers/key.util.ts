@@ -1,5 +1,4 @@
-import { generateKey } from "crypto";
-import { PASS_LENGTH, SALT_LENGTH } from "./env";
+import { PASS_LENGTH, SALT_LENGTH } from "@app/config/env";
 
 export class KeyHelper {
 	private readonly dicSize:number;

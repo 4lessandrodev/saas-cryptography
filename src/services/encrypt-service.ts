@@ -1,8 +1,8 @@
 import crypto, { scryptSync } from 'crypto';
-import { ALGORITHM, ENCRYPT_ENCODING_INPUT, ENCRYPT_ENCODING_OUTPUT, KEY_LENGTH } from './env';
-import getDataAsString from './get-data-as-string.util';
-import Params from './params';
-import { validateParams } from './validate-params';
+import { ALGORITHM, ENCRYPT_ENCODING_INPUT, ENCRYPT_ENCODING_OUTPUT, KEY_LENGTH } from '@app/config/env';
+import getDataAsString from '@app/helpers/get-data-as-string.util';
+import Params from '@app/services/params';
+import { validateParams } from '@app/helpers/validate-params';
 
 export interface IEncrypt {
 	data: string;
