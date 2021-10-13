@@ -8,11 +8,11 @@ export const generateKey: RouteOptions = {
 	handler: async (_req: FastifyRequest<any>, res: FastifyReply) => {
 		
 		const value = keyHelper.generateKey();
-		const tag = randomUUID();
+		const session = randomUUID();
 
-		db.setKey({ tag, value});
+		db.setKey({ session, value});
 
-		res.send({ tag });
+		res.send({ session });
 	}
 }
 
@@ -32,9 +32,9 @@ export const encrypt: RouteOptions = {
 	handler: async (req: FastifyRequest<any>, res: FastifyReply) => {
 		const xApiKey = req.headers['x-api-key'];
 		
-		const key = db.getKey(xApiKey);
+		const session = db.getKey(xApiKey);
 
-		encrypter.setKey(key);
+		encrypter.setKey(session);
 		
 		const data = JSON.stringify(req.body.data);
 
@@ -59,9 +59,9 @@ export const decrypt: RouteOptions = {
 	handler: async (req: FastifyRequest<any>, res: FastifyReply) => {
 		const xApiKey = req.headers['x-api-key'];
 
-		const key = db.getKey(xApiKey);
+		const session = db.getKey(xApiKey);
 
-		encrypter.setKey(key);
+		encrypter.setKey(session);
 
 		const result = await encrypter.decrypt({ data: req.body.data });
 

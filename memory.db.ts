@@ -1,5 +1,5 @@
 export interface Key {
-	tag: string;
+	session: string;
 	value: string;
 }
 
@@ -10,18 +10,18 @@ export class MemoryDB {
 		this.keys = []
 	}
 
-	getKey(tag: string): string {
-		const result = this.keys.find((key) => key.tag === tag);
+	getKey(session: string): string {
+		const result = this.keys.find((key) => key.session === session);
 		return result?.value ?? '';
 	}
 
 	setKey(key: Key): void {
-		this.keys = this.keys.filter((val) => val.tag !== key.tag);
+		this.keys = this.keys.filter((val) => val.session !== key.session);
 		this.keys.push(key);
 	}
 
-	deleteKey(tag: string): void {
-		this.keys = this.keys.filter((val) => val.tag !== tag);
+	deleteKey(session: string): void {
+		this.keys = this.keys.filter((val) => val.session !== session);
 	}
 }
 
