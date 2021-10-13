@@ -34,6 +34,8 @@ export const encrypt: RouteOptions = {
 		
 		const session = db.getKey(xApiKey);
 
+		if(!session) return res.send({ "error": "session expired" });
+
 		encrypter.setKey(session);
 		
 		const data = JSON.stringify(req.body.data);
@@ -61,7 +63,7 @@ export const decrypt: RouteOptions = {
 
 		const session = db.getKey(xApiKey);
 
-		if(!session) return res.send({ "error": "session expired" })
+		if(!session) return res.send({ "error": "session expired" });
 
 		encrypter.setKey(session);
 

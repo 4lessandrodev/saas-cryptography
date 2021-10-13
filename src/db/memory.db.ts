@@ -10,9 +10,9 @@ export class MemoryDB {
 		this.keys = []
 	}
 
-	getKey(session: string): string {
+	getKey(session: string): string | undefined {
 		const result = this.keys.find((key) => key.session === session);
-		return result?.value ?? '';
+		return result?.value;
 	}
 
 	setKey(key: Key): void {
