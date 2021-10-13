@@ -4,7 +4,7 @@ import Params from './params';
 import { validateParams } from '@app/helpers/validate-params';
 import transformData from '@app/helpers/transform-data.util';
 
-export const DecryptService = async <T>(params: Params ): Promise<T> => {
+export const DecryptService = async <T>(params: Params<string> ): Promise<T> => {
 	
 	const { data, password, salt } = params;
 

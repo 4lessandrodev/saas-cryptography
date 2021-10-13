@@ -1,7 +1,7 @@
 import Params from '@app/services/params';
 import { PASS_LENGTH, SALT_LENGTH } from '@app/config/env';
 
-export const validateParams = ({ password, salt }: Params): void => {
+export const validateParams = <T>({ password, salt }: Params<T>): void => {
 
 	const keyLength = password?.length + salt?.length;
 
