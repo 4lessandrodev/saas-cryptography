@@ -14,5 +14,7 @@ server.route(generateKey);
 server.route(encrypt);
 server.route(decrypt);
 
-server.listen(process.env.PORT || 3000, (console.log, console.log));
+console.log(process.env);
+
+server.listen(process.env.PORT || 3000, process.env.HOST || '::', (console.log, console.log));
 export { encrypter, keyHelper, db };
