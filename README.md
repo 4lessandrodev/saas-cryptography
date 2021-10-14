@@ -11,7 +11,7 @@ This session is an authentication.
 It is not an encryption key. It only authorizes you to use the app.
 It expires after 5 minutes or after being used to decrypt a data request.
 
-`GET http://localhost:3000/key`
+`GET http://localhost:3000/key` | xargs echo
 
 Result
 
@@ -21,6 +21,12 @@ Result
     "session": "129db5f5-5f00-4735-8792-ec621207661b"
 }
 
+```
+
+Or
+
+```shell
+curl https://saas-encrypt.herokuapp.com/key
 ```
 
 ---
@@ -63,6 +69,15 @@ Result
 
 ```
 
+Or
+
+```shell
+curl -H "Content-Type: application/json" \
+-H "x-api-key: 129db5f5-5f00-4735-8792-ec621207661b" \
+-d '{"data":{"id":1,"name":"Alessandro"}}' \
+-X POST https://saas-encrypt.herokuapp.com/encrypt | xargs echo
+```
+
 ---
 
 ## Decrypt data
@@ -100,6 +115,15 @@ Result
     }
 }
 
+```
+
+Or
+
+```shell
+curl -H "Content-Type: application/json" \
+-H "x-api-key: 129db5f5-5f00-4735-8792-ec621207661b" \
+-d '{"data":"163cc6f688434b651db01ca478853dad913a18c1a771cb89b04a4d41"}' \
+-X POST https://saas-encrypt.herokuapp.com/decrypt | xargs echo
 ```
 
 ---
