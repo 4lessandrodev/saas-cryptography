@@ -26,7 +26,7 @@ Result
 Or
 
 ```shell
-curl https://saas-encrypt.herokuapp.com/key
+curl https://saas-encrypt.herokuapp.com/key | xargs echo
 ```
 
 ---
