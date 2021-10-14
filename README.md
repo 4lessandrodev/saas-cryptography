@@ -11,7 +11,7 @@ This session is an authentication.
 It is not an encryption key. It only authorizes you to use the app.
 It expires after 5 minutes or after being used to decrypt a data request.
 
-`GET http://localhost:3000/key` | xargs echo
+`GET http://localhost:3000/key`
 
 Result
 
